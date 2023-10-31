@@ -18,7 +18,10 @@ export const dataSourceOptions: DataSourceOptions = {
   password: configService.get('DB_PASSWORD'),
   database: configService.get('DB_NAME'),
   entities: [UserEntity, StudentProgressEntity, TutoringSessionEntity],
-  synchronize: false,
+  synchronize: true,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 };
 
 const dataSource = new DataSource(dataSourceOptions);
